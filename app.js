@@ -19,11 +19,19 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================
   const preloader = document.getElementById('site-preloader');
   if (preloader) {
+    const startTime = performance.now();
+    const MIN_PRELOADER_MS = 850; // Smooth intentional duration to eliminate abrupt flicker
+
     const dismissPreloader = () => {
-      preloader.classList.add('loaded');
+      const elapsed = performance.now() - startTime;
+      const delay = Math.max(0, MIN_PRELOADER_MS - elapsed);
+
       setTimeout(() => {
-        if (preloader.parentNode) preloader.parentNode.removeChild(preloader);
-      }, 450);
+        preloader.classList.add('loaded');
+        setTimeout(() => {
+          if (preloader.parentNode) preloader.parentNode.removeChild(preloader);
+        }, 550);
+      }, delay);
     };
 
     if (document.readyState === 'complete') {
@@ -31,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       window.addEventListener('load', dismissPreloader);
       // Failsafe timeout so screen is never trapped
-      setTimeout(dismissPreloader, 650);
+      setTimeout(dismissPreloader, 2000);
     }
   }
 

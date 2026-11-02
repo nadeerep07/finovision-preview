@@ -282,7 +282,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   z-index: 999998;
   opacity: 1;
   visibility: visible;
-  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s;
+  transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.5s;
 }
 .site-preloader.loaded {
   opacity: 0;
@@ -331,7 +331,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   width: 0%;
   background: linear-gradient(90deg, #10b981, #34d399);
   border-radius: 99px;
-  animation: preloaderProgress 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: preloaderProgress 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 @keyframes preloaderSpin {
