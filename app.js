@@ -287,11 +287,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const targetAction = form.getAttribute('action') && form.getAttribute('action') !== '#'
         ? form.getAttribute('action')
-        : 'https://formsubmit.co/ajax/info@finovision.net';
+        : 'https://api.web3forms.com/submit';
 
       const formData = new FormData(form);
-      if (!formData.has('_subject')) {
-        formData.append('_subject', 'New Finovision UAE Client Consultation Inquiry');
+      if (!formData.has('access_key')) {
+        formData.append('access_key', 'badaddf1-74ef-4956-9963-e1232f17048f');
+      }
+      if (!formData.has('subject')) {
+        formData.append('subject', 'New Finovision UAE Client Consultation Inquiry');
+      }
+      if (!formData.has('from_name')) {
+        formData.append('from_name', 'Finovision Web Portal');
       }
 
       try {
@@ -303,7 +309,9 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
 
-        if (response.ok) {
+        const data = await response.json().catch(() => ({}));
+
+        if (response.ok && data.success !== false) {
           if (statusElement) {
             statusElement.innerHTML = 'Consultation request received. A qualified Finovision specialist will contact you within 1 business day.<br><span style="font-size: 0.85em; opacity: 0.9;">Urgent assistance? <a href="https://wa.me/971503010675?text=Hello%20Finovision,%20I%20just%20submitted%20a%20consultation%20request%20on%20your%20website" target="_blank" rel="noopener noreferrer" style="color: #69f0ae; font-weight: 700; text-decoration: underline;">Direct line WhatsApp: +971 50 301 0675 &rarr;</a></span>';
             statusElement.style.color = '#10b981';
