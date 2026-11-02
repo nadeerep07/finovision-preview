@@ -14,11 +14,20 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Prevent browser scroll drift on reload (pin cleanly to top on refresh)
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+
   // ==========================================
   // 0. MINIMAL LOGO PRELOADER (ONLY ON OPEN & REFRESH)
   // ==========================================
   const isReload = (performance.getEntriesByType('navigation')[0] || {}).type === 'reload';
   const isPageSwitch = sessionStorage.getItem('finovision_is_page_switch') === 'true';
+
+  if (isReload && !window.location.hash) {
+    window.scrollTo(0, 0);
+  }
 
   // Mark internal page switch so subsequent screens render immediately with zero loader
   document.addEventListener('click', (e) => {
@@ -552,19 +561,20 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // -------------------------------------------------------------
-  // Legal Document Table of Contents Smooth Jump
+  // Universal In-Page Anchor Smooth Jump (with Header Offset)
   // -------------------------------------------------------------
-  const legalTocLinks = document.querySelectorAll('.legal-toc-grid a');
-  legalTocLinks.forEach((link) => {
+  const inPageLinks = document.querySelectorAll('a[href^="#"]:not([href="#"])');
+  inPageLinks.forEach((link) => {
     link.addEventListener('click', (e) => {
       const hash = link.getAttribute('href');
-      if (hash && hash.startsWith('#')) {
+      if (hash && hash.length > 1) {
         const target = document.getElementById(hash.slice(1));
         if (target) {
           e.preventDefault();
-          const offsetTop = target.getBoundingClientRect().top + window.scrollY - 110;
+          const headerOffset = document.querySelector('.site-header')?.offsetHeight || 92;
+          const offsetTop = target.getBoundingClientRect().top + window.scrollY - headerOffset - 16;
           window.scrollTo({
-            top: offsetTop,
+            top: Math.max(0, offsetTop),
             behavior: 'smooth'
           });
           if (history.pushState) {

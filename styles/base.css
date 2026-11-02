@@ -6,7 +6,6 @@
 
 * { box-sizing: border-box; }
 html { 
-  scroll-behavior: smooth; 
   overflow-x: hidden;
   max-width: 100%;
 }
@@ -297,22 +296,22 @@ button, a { -webkit-tap-highlight-color: transparent; }
   justify-content: center;
 }
 .site-preloader .preloader-logo-ring {
-  width: 68px;
-  height: 68px;
+  width: auto;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(7, 60, 52, 0.1);
-  border-radius: 20px;
-  box-shadow: 0 16px 40px rgba(7, 60, 52, 0.14), 0 2px 8px rgba(7, 60, 52, 0.05);
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
 }
 .site-preloader .preloader-logo {
-  width: 42px;
-  height: 42px;
-  filter: drop-shadow(0 2px 8px rgba(0, 176, 116, 0.3));
+  width: 52px;
+  height: 52px;
+  filter: drop-shadow(0 4px 16px rgba(0, 176, 116, 0.45));
   animation: preloaderPulse 1.2s ease-in-out infinite;
 }
 .site-preloader .preloader-spinner,
