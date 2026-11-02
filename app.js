@@ -284,24 +284,28 @@ document.addEventListener('DOMContentLoaded', () => {
         ? form.getAttribute('action')
         : 'https://api.web3forms.com/submit';
 
-      const formData = new FormData(form);
-      if (!formData.has('access_key')) {
-        formData.append('access_key', 'badaddf1-74ef-4956-9963-e1232f17048f');
-      }
-      if (!formData.has('subject')) {
-        formData.append('subject', 'New Finovision UAE Client Consultation Inquiry');
-      }
-      if (!formData.has('from_name')) {
-        formData.append('from_name', 'Finovision Web Portal');
-      }
+      const subjectVal = form.querySelector('input[name="subject"], input[name="_subject"]')?.value || 'New Finovision UAE Client Consultation Inquiry';
+      const messageInput = form.querySelector('textarea[name="message"], input[name="message"]');
+      const messageVal = messageInput ? messageInput.value.trim() : '';
+
+      const jsonPayload = {
+        access_key: 'badaddf1-74ef-4956-9963-e1232f17048f',
+        subject: subjectVal,
+        from_name: 'Finovision Web Portal',
+        name: nameVal,
+        email: emailVal,
+        phone: phoneVal || 'Not provided',
+        message: messageVal || 'Consultation request submitted from website'
+      };
 
       try {
         const response = await fetch(targetAction, {
           method: 'POST',
-          body: formData,
           headers: {
+            'Content-Type': 'application/json',
             'Accept': 'application/json'
-          }
+          },
+          body: JSON.stringify(jsonPayload)
         });
 
         const data = await response.json().catch(() => ({}));
@@ -312,9 +316,28 @@ document.addEventListener('DOMContentLoaded', () => {
             statusElement.style.color = '#10b981';
             statusElement.style.fontWeight = '600';
           }
+
+          // Force-clear all visible form input and textarea values regardless of browser autofill
           form.reset();
+          form.querySelectorAll('input:not([type="hidden"]), textarea').forEach((field) => {
+            field.value = '';
+            field.dispatchEvent(new Event('input', { bubbles: true }));
+            field.dispatchEvent(new Event('change', { bubbles: true }));
+          });
+
+          if (submitBtn) {
+            submitBtn.innerHTML = '<span>Message Sent</span> <span aria-hidden="true">✓</span>';
+            submitBtn.disabled = true;
+            submitBtn.style.opacity = '0.9';
+            setTimeout(() => {
+              submitBtn.disabled = false;
+              submitBtn.style.opacity = '1';
+              submitBtn.innerHTML = originalBtnHTML;
+            }, 4000);
+          }
+          return;
         } else {
-          throw new Error('Server returned ' + response.status);
+          throw new Error(data.message || 'Server returned ' + response.status);
         }
       } catch (err) {
         // Fallback: Open prefilled mail client so lead is never lost
@@ -332,13 +355,12 @@ document.addEventListener('DOMContentLoaded', () => {
           statusElement.innerHTML = 'Direct email dispatch opened. <a href="' + mailtoUrl + '" style="color: #69f0ae; font-weight: 700; text-decoration: underline;">Click here to send directly to info@finovision.net</a> or WhatsApp <a href="https://wa.me/971503010675" target="_blank" style="color: #69f0ae; font-weight: 700; text-decoration: underline;">+971 50 301 0675</a>.';
           statusElement.style.color = '#34d399';
         }
-        window.location.href = mailtoUrl;
-      } finally {
         if (submitBtn) {
           submitBtn.disabled = false;
           submitBtn.style.opacity = '1';
           submitBtn.innerHTML = originalBtnHTML;
         }
+        window.location.href = mailtoUrl;
       }
     });
   });
