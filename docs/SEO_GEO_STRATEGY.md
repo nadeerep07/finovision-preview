@@ -81,7 +81,7 @@ Content specifically targets corporate inquiries across three primary GCC tiers:
 | **`/about`** | About Finovision, US CPA UAE, Tax consultant Sharjah | Shams free zone accountants, GCC VAT diploma PwC ATT, Manipal MBA Finance, cross border accounting | Informational / Trust |
 | **`/services`** | UAE accounting services, Internal audit Dubai, ERP software Sharjah | POS restaurant systems UAE, supermarket billing software, Zoho Books implementation, Tally Prime partner | Commercial Investigation |
 | **`/vat-services`** | UAE VAT return filing, FTA VAT compliance, Input tax credit recovery | Reverse charge mechanism UAE, zero rated tax UAE, blocked input tax, FTA penalty defense | Transactional / Specialized |
-| **`/contact`** | Contact Finovision, Accounting firm Sharjah phone, Finovision address | +971 50 301 0675, info@finovisionuae.com, Shams commercial license 1804056 | Direct Action / Contact |
+| **`/contact`** | Contact Finovision, Accounting firm Sharjah phone, Finovision address | +971 50 301 0675, info@finovision.net, Shams commercial license 1804056 | Direct Action / Contact |
 
 ---
 
@@ -92,7 +92,7 @@ Each page features rich JSON-LD microdata enabling enhanced Google SERP features
 1. **`AccountingService` & `LocalBusiness`** (on Homepage and Contact page):
    - Legal Name: `Finovision Business Solutions LLC`
    - Official Phone: `+971503010675`
-   - Official Email: `info@finovisionuae.com`
+   - Official Email: `info@finovision.net`
    - Address: `Sharjah Media City (Shams), Sharjah, AE`
    - Coordinates: `25.3223, 55.5136`
    - Business Hours: Sunday–Thursday 09:00–18:00

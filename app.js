@@ -272,14 +272,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       if (statusElement) {
-        statusElement.textContent = 'Transmitting your inquiry securely to our advisory desk...';
+        statusElement.textContent = 'Transmitting your inquiry securely to our team...';
         statusElement.style.color = '#a6d8c1';
         statusElement.style.fontWeight = '500';
       }
 
       const targetAction = form.getAttribute('action') && form.getAttribute('action') !== '#'
         ? form.getAttribute('action')
-        : 'https://formsubmit.co/ajax/info@finovisionuae.com';
+        : 'https://formsubmit.co/ajax/info@finovision.net';
 
       const formData = new FormData(form);
       if (!formData.has('_subject')) {
@@ -297,7 +297,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (response.ok) {
           if (statusElement) {
-            statusElement.innerHTML = 'Consultation request received. A qualified Finovision advisor will contact you within 1 business day.<br><span style="font-size: 0.85em; opacity: 0.9;">Urgent assistance? <a href="https://wa.me/971503010675?text=Hello%20Finovision,%20I%20just%20submitted%20a%20consultation%20request%20on%20your%20website" target="_blank" rel="noopener noreferrer" style="color: #69f0ae; font-weight: 700; text-decoration: underline;">Direct line WhatsApp: +971 50 301 0675 &rarr;</a></span>';
+            statusElement.innerHTML = 'Consultation request received. A qualified Finovision specialist will contact you within 1 business day.<br><span style="font-size: 0.85em; opacity: 0.9;">Urgent assistance? <a href="https://wa.me/971503010675?text=Hello%20Finovision,%20I%20just%20submitted%20a%20consultation%20request%20on%20your%20website" target="_blank" rel="noopener noreferrer" style="color: #69f0ae; font-weight: 700; text-decoration: underline;">Direct line WhatsApp: +971 50 301 0675 &rarr;</a></span>';
             statusElement.style.color = '#10b981';
             statusElement.style.fontWeight = '600';
           }
@@ -307,18 +307,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       } catch (err) {
         // Fallback: Open prefilled mail client so lead is never lost
-        const mailtoSubject = encodeURIComponent('Finovision Advisory Consultation Request - ' + nameVal);
+        const mailtoSubject = encodeURIComponent('Finovision Consultation Request - ' + nameVal);
         const mailtoBody = encodeURIComponent(
-          'Dear Finovision Advisory Team,\n\nI would like to request a corporate consultation.\n\n' +
+          'Dear Finovision Team,\n\nI would like to request a corporate consultation.\n\n' +
           'Name: ' + nameVal + '\n' +
           'Email: ' + emailVal + '\n' +
           'Phone: ' + (phoneVal || 'N/A') + '\n\n' +
           'Sent via Finovision UAE Web Portal'
         );
-        const mailtoUrl = 'mailto:info@finovisionuae.com?subject=' + mailtoSubject + '&body=' + mailtoBody;
+        const mailtoUrl = 'mailto:info@finovision.net?subject=' + mailtoSubject + '&body=' + mailtoBody;
 
         if (statusElement) {
-          statusElement.innerHTML = 'Direct email dispatch opened. <a href="' + mailtoUrl + '" style="color: #69f0ae; font-weight: 700; text-decoration: underline;">Click here to send directly to info@finovisionuae.com</a> or WhatsApp <a href="https://wa.me/971503010675" target="_blank" style="color: #69f0ae; font-weight: 700; text-decoration: underline;">+971 50 301 0675</a>.';
+          statusElement.innerHTML = 'Direct email dispatch opened. <a href="' + mailtoUrl + '" style="color: #69f0ae; font-weight: 700; text-decoration: underline;">Click here to send directly to info@finovision.net</a> or WhatsApp <a href="https://wa.me/971503010675" target="_blank" style="color: #69f0ae; font-weight: 700; text-decoration: underline;">+971 50 301 0675</a>.';
           statusElement.style.color = '#34d399';
         }
         window.location.href = mailtoUrl;

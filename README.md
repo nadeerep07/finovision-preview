@@ -29,7 +29,7 @@ Multi-page corporate website for **Finovision Business Solutions LLC**, an accre
 - **Jurisdiction**: Sharjah Media City (Shams), Sharjah, United Arab Emirates
 - **Commercial License**: #1804056
 - **Telephone / WhatsApp**: `+971 50 301 0675` (International format)
-- **Official Email**: `info@finovisionuae.com`
+- **Official Email**: `info@finovision.net`
 - **Hours of Operation**:
   - Sunday – Thursday: 9:00 AM – 6:00 PM
   - Saturday: By appointment
@@ -38,7 +38,7 @@ Multi-page corporate website for **Finovision Business Solutions LLC**, an accre
   - Certified Public Accountant (CPA, Alaska, USA)
   - MBA in Finance (Manipal University, Dubai)
   - Diploma in GCC VAT Compliance (PwC / ATT)
-- **Regional Footprint**: United Arab Emirates · Oman · India (18+ Years Combined Corporate Track Record)
+- **Regional Footprint**: United Arab Emirates · Oman · India (20+ Years Combined Corporate Track Record)
 
 ---
 

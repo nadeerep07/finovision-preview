@@ -10,7 +10,7 @@ This document records the verified company background, professional credentials,
 - **Jurisdiction**: Sharjah Media City (Shams), Sharjah, United Arab Emirates
 - **Commercial License Number**: `1804056`
 - **Primary Telephone / WhatsApp**: `+971 50 301 0675` (International format)
-- **Official Email**: `info@finovisionuae.com`
+- **Official Email**: `info@finovision.net`
 - **Headquarters Address**: Sharjah Media City (Shams), Sharjah, United Arab Emirates
 - **Office Hours**: Sunday – Thursday, 09:00 to 18:00 GST
 - **Operating Markets**: United Arab Emirates · Oman · India
@@ -33,7 +33,7 @@ The leadership and senior advisory team possess verified regional and internatio
    - Awarded by **Manipal University, Dubai Campus**.
    - Strategic corporate financial planning, capital budgeting, and governance.
 
-4. **18+ Years GCC Track Record**:
+4. **20+ Years GCC Track Record**:
    - Extensive cross-border experience serving trading enterprises, commercial holding groups, hospitality venues, and SMEs across the Gulf region.
 
 ---

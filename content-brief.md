@@ -6,7 +6,7 @@
 **Location:** Sharjah Media City, Sharjah, United Arab Emirates  
 **License number:** 1804056  
 **Primary phone in supplied material:** 050 301 0675  
-**Most recent supplied email:** info@finovisionuae.com
+**Most recent supplied email:** info@finovision.net
 
 Finovision Business Solutions provides professional business solutions across accounting, taxation, business software and IT consultancy. The supplied company profile says the core team has experience in accounting, auditing, taxation, finance and administration across the UAE, Oman and India.
 
