@@ -2,41 +2,6 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "trailingSlash": false,
-  "redirects": [
-    {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.finovision.net"
-        }
-      ],
-      "destination": "https://finovision.net/:path*",
-      "permanent": true
-    },
-    {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "finovisionuae.com"
-        }
-      ],
-      "destination": "https://finovision.net/:path*",
-      "permanent": true
-    },
-    {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.finovisionuae.com"
-        }
-      ],
-      "destination": "https://finovision.net/:path*",
-      "permanent": true
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -61,3 +26,4 @@
     }
   ]
 }
+
