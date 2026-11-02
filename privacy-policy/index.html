@@ -6,6 +6,12 @@
   <meta name="theme-color" content="#073c34">
   <meta name="format-detection" content="telephone=no">
 
+  <script>
+    if (sessionStorage.getItem('finovision_is_page_switch') === 'true' && (performance.getEntriesByType('navigation')[0] || {}).type !== 'reload') {
+      document.documentElement.classList.add('no-preloader');
+    }
+  </script>
+
   <title>Privacy Policy — Finovision Business Solutions LLC (Sharjah, UAE)</title>
   <meta name="description" content="Privacy Policy of Finovision Business Solutions LLC, Sharjah Media City, UAE. Learn how we collect, protect, and process corporate accounting, VAT, and financial advisory data under UAE Personal Data Protection Law (PDPL).">
   <meta name="keywords" content="Finovision Privacy Policy, UAE PDPL Accounting, Financial Data Confidentiality Sharjah, Shams Free Zone Advisory Privacy">

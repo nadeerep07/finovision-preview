@@ -6,6 +6,12 @@
   <meta name="theme-color" content="#073c34">
   <meta name="format-detection" content="telephone=no">
 
+  <script>
+    if (sessionStorage.getItem('finovision_is_page_switch') === 'true' && (performance.getEntriesByType('navigation')[0] || {}).type !== 'reload') {
+      document.documentElement.classList.add('no-preloader');
+    }
+  </script>
+
   <title>About Us — Finovision Business Solutions LLC | Sharjah &amp; Dubai UAE</title>
   <meta name="description" content="Discover Finovision Business Solutions LLC: our vision, mission, core values, and executive leadership credentials spanning US CPA, MBA Finance, and PwC/ATT GCC VAT compliance in Sharjah Media City, UAE.">
   <meta name="keywords" content="About Finovision, Accounting Firm Sharjah, CPA UAE, Tax Support Dubai, Shams Free Zone Accounting, Financial Consultants Sharjah Media City">

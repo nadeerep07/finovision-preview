@@ -6,6 +6,12 @@
   <meta name="theme-color" content="#073c34">
   <meta name="format-detection" content="telephone=no">
 
+  <script>
+    if (sessionStorage.getItem('finovision_is_page_switch') === 'true' && (performance.getEntriesByType('navigation')[0] || {}).type !== 'reload') {
+      document.documentElement.classList.add('no-preloader');
+    }
+  </script>
+
   <title>Terms &amp; Conditions — Finovision Business Solutions LLC (Sharjah, UAE)</title>
   <meta name="description" content="Terms and Conditions governing professional corporate accounting, internal audit assurance, UAE VAT compliance support, and cloud ERP systems consulting provided by Finovision Business Solutions LLC in Sharjah Media City.">
   <meta name="keywords" content="Finovision Terms and Conditions, UAE Accounting Engagement Terms, Tax Support Contract Sharjah, Shams Free Zone Consulting Terms">

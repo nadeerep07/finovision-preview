@@ -6,6 +6,12 @@
   <meta name="theme-color" content="#073c34">
   <meta name="format-detection" content="telephone=no">
 
+  <script>
+    if (sessionStorage.getItem('finovision_is_page_switch') === 'true' && (performance.getEntriesByType('navigation')[0] || {}).type !== 'reload') {
+      document.documentElement.classList.add('no-preloader');
+    }
+  </script>
+
   <title>Finovision Business Solutions LLC — Accounting, Audit &amp; VAT Support UAE</title>
   <meta name="description" content="Finovision Business Solutions LLC provides accredited corporate accounting, statutory audit, UAE VAT compliance, and cloud ERP systems architecture based in Sharjah Media City (Shams), UAE. Serving clients across Sharjah, Dubai, Abu Dhabi, Oman, and India.">
   <meta name="keywords" content="Accounting UAE, Audit Sharjah, UAE VAT support, Corporate Tax UAE, Bookkeeping Dubai, Accounting Sharjah Media City, FTA Registered Tax Agent, ERP implementation UAE, POS solutions Dubai, Finovision">

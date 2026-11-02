@@ -15,42 +15,12 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   // ==========================================
-  // 0. SITE-WIDE PRELOADER & NAVIGATION PROGRESS BAR
+  // 0. MINIMAL LOGO PRELOADER (ONLY ON OPEN & REFRESH)
   // ==========================================
-  const preloader = document.getElementById('site-preloader');
-  if (preloader) {
-    const startTime = performance.now();
-    const MIN_PRELOADER_MS = 850; // Smooth intentional duration to eliminate abrupt flicker
+  const isReload = (performance.getEntriesByType('navigation')[0] || {}).type === 'reload';
+  const isPageSwitch = sessionStorage.getItem('finovision_is_page_switch') === 'true';
 
-    const dismissPreloader = () => {
-      const elapsed = performance.now() - startTime;
-      const delay = Math.max(0, MIN_PRELOADER_MS - elapsed);
-
-      setTimeout(() => {
-        preloader.classList.add('loaded');
-        setTimeout(() => {
-          if (preloader.parentNode) preloader.parentNode.removeChild(preloader);
-        }, 550);
-      }, delay);
-    };
-
-    if (document.readyState === 'complete') {
-      dismissPreloader();
-    } else {
-      window.addEventListener('load', dismissPreloader);
-      // Failsafe timeout so screen is never trapped
-      setTimeout(dismissPreloader, 2000);
-    }
-  }
-
-  // Top Navigation Progress Bar on Internal Link Navigation
-  let topLoader = document.getElementById('site-top-loader');
-  if (!topLoader) {
-    topLoader = document.createElement('div');
-    topLoader.id = 'site-top-loader';
-    document.body.appendChild(topLoader);
-  }
-
+  // Mark internal page switch so subsequent screens render immediately with zero loader
   document.addEventListener('click', (e) => {
     const anchor = e.target.closest('a');
     if (!anchor) return;
@@ -66,16 +36,41 @@ document.addEventListener('DOMContentLoaded', () => {
       !e.metaKey &&
       !e.shiftKey
     ) {
-      topLoader.className = 'loading';
+      sessionStorage.setItem('finovision_is_page_switch', 'true');
     }
   });
 
-  window.addEventListener('pageshow', () => {
-    if (topLoader) {
-      topLoader.className = 'done';
-      setTimeout(() => { topLoader.className = ''; }, 350);
+  const preloader = document.getElementById('site-preloader');
+  if (preloader) {
+    if (isPageSwitch && !isReload) {
+      // Switching between screens: remove immediately with zero delay
+      preloader.remove();
+    } else {
+      // First open or refresh: show clean logo briefly and fade out
+      sessionStorage.removeItem('finovision_is_page_switch');
+      const startTime = performance.now();
+      const DISPLAY_MS = 650;
+
+      const dismissPreloader = () => {
+        const elapsed = performance.now() - startTime;
+        const delay = Math.max(0, DISPLAY_MS - elapsed);
+
+        setTimeout(() => {
+          preloader.classList.add('loaded');
+          setTimeout(() => {
+            if (preloader.parentNode) preloader.parentNode.removeChild(preloader);
+          }, 350);
+        }, delay);
+      };
+
+      if (document.readyState === 'complete') {
+        dismissPreloader();
+      } else {
+        window.addEventListener('load', dismissPreloader);
+        setTimeout(dismissPreloader, 1500);
+      }
     }
-  });
+  }
 
   // ==========================================
   // 1. ACTIVE NAVIGATION LINK MATCHING

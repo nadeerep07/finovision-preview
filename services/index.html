@@ -6,6 +6,12 @@
   <meta name="theme-color" content="#073c34">
   <meta name="format-detection" content="telephone=no">
 
+  <script>
+    if (sessionStorage.getItem('finovision_is_page_switch') === 'true' && (performance.getEntriesByType('navigation')[0] || {}).type !== 'reload') {
+      document.documentElement.classList.add('no-preloader');
+    }
+  </script>
+
   <title>Financial &amp; Business Advisory Services — Finovision Business Solutions LLC | Sharjah &amp; Dubai UAE</title>
   <meta name="description" content="Explore Finovision's integrated services: Accounting &amp; Bookkeeping, Auditing &amp; Internal Controls, UAE VAT &amp; Corporate Tax, ERP Implementations, POS &amp; Hospitality, and CRM Workflow management.">
   <meta name="keywords" content="Accounting Services UAE, Bookkeeping Sharjah, Auditing Dubai, UAE VAT Support, ERP Implementation Sharjah, POS Restaurant Solutions UAE, WPS Payroll UAE, Corporate Tax Support">

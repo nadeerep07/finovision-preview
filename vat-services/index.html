@@ -6,6 +6,12 @@
   <meta name="theme-color" content="#073c34">
   <meta name="format-detection" content="telephone=no">
 
+  <script>
+    if (sessionStorage.getItem('finovision_is_page_switch') === 'true' && (performance.getEntriesByType('navigation')[0] || {}).type !== 'reload') {
+      document.documentElement.classList.add('no-preloader');
+    }
+  </script>
+
   <title>VAT &amp; Corporate Tax Support — Finovision Business Solutions LLC | Sharjah Media City</title>
   <meta name="description" content="Accredited UAE VAT, Corporate Tax (Federal Decree-Law No. 47 of 2022), and Ministry of Finance E-Invoicing advisory in Sharjah Media City. QFZP 0% corporate tax planning, Small Business Relief, and FTA filings.">
   <meta name="keywords" content="VAT & Corporate Tax Support, UAE Corporate Tax Filing, QFZP Free Zone Tax UAE, Small Business Relief UAE, Federal E-Invoicing UAE, UAE VAT Return Filing, FTA EmaraTax Sharjah">

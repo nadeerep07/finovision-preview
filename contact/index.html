@@ -6,6 +6,12 @@
   <meta name="theme-color" content="#073c34">
   <meta name="format-detection" content="telephone=no">
 
+  <script>
+    if (sessionStorage.getItem('finovision_is_page_switch') === 'true' && (performance.getEntriesByType('navigation')[0] || {}).type !== 'reload') {
+      document.documentElement.classList.add('no-preloader');
+    }
+  </script>
+
   <title>Contact Finovision Business Solutions LLC — Sharjah Media City (Shams), UAE</title>
   <meta name="description" content="Get in touch with Finovision Business Solutions LLC in Sharjah Media City, UAE. Call +971 50 301 0675 or email info@finovision.net for accounting, audit, VAT compliance, or ERP software advisory.">
   <meta name="keywords" content="Contact Finovision, Accounting Firm Sharjah Phone, Tax Support Dubai Contact, Shams Free Zone Office, Finovision UAE, +971 50 301 0675, info@finovision.net">
